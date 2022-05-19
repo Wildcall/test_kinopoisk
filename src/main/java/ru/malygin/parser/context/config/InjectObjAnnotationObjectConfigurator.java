@@ -1,8 +1,8 @@
-package ru.malygin.parser.context.impl;
+package ru.malygin.parser.context.config;
 
 import ru.malygin.parser.context.ApplicationContext;
 import ru.malygin.parser.context.annotation.InjectObj;
-import ru.malygin.parser.context.ifc.ObjectConfigurator;
+import ru.malygin.parser.context.util.Assert;
 
 import java.lang.reflect.Field;
 
@@ -18,6 +18,7 @@ public class InjectObjAnnotationObjectConfigurator implements ObjectConfigurator
                 if (field.isAnnotationPresent(InjectObj.class)) {
                     field.setAccessible(true);
                     Object object = context.getObject(field.getType());
+                    Assert.notNull(object, "Creating object error: " + field.getType());
                     field.set(t, object);
                 }
             }

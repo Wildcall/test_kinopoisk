@@ -2,8 +2,10 @@ package ru.malygin.parser.service.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.malygin.parser.context.annotation.Singleton;
 import ru.malygin.parser.service.LogService;
 
+@Singleton
 public class LogbackLogger implements LogService {
 
     private final Logger errorLogger;

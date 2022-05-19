@@ -1,7 +1,9 @@
 package ru.malygin.parser.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.Hibernate;
 
 import java.sql.Date;
@@ -28,7 +30,7 @@ public class Film {
     private Double rating;
 
     @Basic
-    @Column(name = "title", nullable = false, length = -1)
+    @Column(name = "title", nullable = false)
     private String title;
 
     @Basic
@@ -55,6 +57,14 @@ public class Film {
         this.voteCount = voteCount;
     }
 
+    public boolean hasError() {
+        return pos == -1
+                || rating == -1.0
+                || title.equals("-1")
+                || prodYear == -1
+                || voteCount == -1;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -70,12 +80,6 @@ public class Film {
 
     @Override
     public String toString() {
-        return "Номер: " + id +
-                " / Позиция: " + pos +
-                " / Рейтинг: " + rating +
-                " / Название: " + title +
-                " / Год выпуска: " + prodYear +
-                " / Кол-во голосов: " + voteCount +
-                " / Дата сохранения: " + insertDate;
+        return "Id: " + id + " / Pos: " + pos + " / Rating: " + rating + " / Title: " + title + " / Year: " + prodYear + " / Vote: " + voteCount + " / Save date: " + insertDate;
     }
 }

@@ -1,7 +1,7 @@
 <configuration debug="false">
-    <property name="LOG_DIR" value="log/"/>
-    <timestamp key="bySecond" datePattern="HH:mm:ss"/>
-    <timestamp key="byDate" datePattern="yyyy-MM-dd"/>
+    <timestamp key="bySecond" datePattern="HHmmss"/>
+    <timestamp key="byDate" datePattern="yyyyMMdd"/>
+    <property name="LOG_DIR" value="log"/>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -48,4 +48,7 @@
     <root level="debug">
         <appender-ref ref="STDOUT"/>
     </root>
+
+    <logger name="org.hibernate" level="INFO">
+    </logger>
 </configuration>

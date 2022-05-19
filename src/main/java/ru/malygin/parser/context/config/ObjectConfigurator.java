@@ -1,4 +1,4 @@
-package ru.malygin.parser.context.ifc;
+package ru.malygin.parser.context.config;
 
 import ru.malygin.parser.context.ApplicationContext;
 
