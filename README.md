@@ -69,7 +69,7 @@ GRANT SELECT ON TABLE films to searcher_user;
 ```
 </details>
 
-Everything is. ready to start up application:
+Everything is ready to start application:
 
 ```
 cd ../target | java -jar parser-jar-with-dependencies.jar
